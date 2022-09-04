@@ -4,9 +4,12 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 var server_port = process.env.YOUR_PORT || process.env.PORT || 3000;
 
 const deps = require("./package.json").dependencies;
-module.exports = {
+module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:3000/",
+    publicPath:
+      argv.mode === "development"
+        ? "http://localhost:8080/"
+        : "https://randomiser-wheel-mf.vercel.app/",
   },
 
   resolve: {
@@ -63,4 +66,4 @@ module.exports = {
       template: "./src/index.html",
     }),
   ],
-};
+});
