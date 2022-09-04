@@ -2,7 +2,6 @@ const HtmlWebPackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
 var server_port = process.env.YOUR_PORT || process.env.PORT || 3000;
-var server_host = process.env.YOUR_HOST || "0.0.0.0";
 
 const deps = require("./package.json").dependencies;
 module.exports = {
@@ -16,7 +15,6 @@ module.exports = {
 
   devServer: {
     port: server_port,
-    host: server_host,
     historyApiFallback: true,
   },
 
