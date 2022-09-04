@@ -18,6 +18,7 @@ module.exports = {
     port: server_port,
     host: server_host,
     historyApiFallback: true,
+    disableHostCheck: true,
   },
 
   module: {
